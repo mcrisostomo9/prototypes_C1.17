@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //fs1
+        var mySmallNumber = 5;
+        var myString = "5";
+        var myBigNumber = 255;
+        //fs2
+        var output1 = mySmallNumber == myString;
+        var output2 = mySmallNumber === myString;
+        var output3 = mySmallNumber < myBigNumber;
+        var output4 = mySmallNumber > myBigNumber;
+        console.log("Output 1: 5 is equal to \"5\" in value =", output1);
+        console.log("Output 2: 5 is equal to \"5\" in value and type =", output2);
+        console.log("Output 3: 5 is less than 255 =", output3);
+        console.log("Output 4: 5 is greater than 255 =", output4);
+        //fs3
+        var gameNumber = 64;
+        var userInput1 = 99;
+        var userInput2 = gameNumber;
+        //fs4
+        if(userInput1 > gameNumber){
+            console.log("This number is too high!!!");
+        }
+        if(userInput1 < gameNumber) {
+            console.log("This number is too low!!!");
+        }
+        if(userInput1 < 1 || userInput1 > 100){
+            console.log("Your message is out of range.....")
+        }else{
+            console.log("Your message is in range!!")
+        }
+        if(userInput2 == gameNumber){
+            console.log("You guessed the right number!!");
+        }else{
+            console.log("Dust yourself off and try again...");
+        }
+        //fs5
+        switch (userInput1){
+            case gameNumber:
+                console.log("You found the correct number!");
+                break;
+            case gameNumber - 10:
+                console.log("Too low but warm");
+                break;
+            case gameNumber + 10:
+                console.log("Too high but warm");
+                break;
+            case gameNumber - 25:
+                console.log("Too low and cold");
+                break;
+            case gameNumber + 25:
+                console.log("Too high and cold");
+                break;
+            default:
+                console.log("You are way off");
+                break;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
