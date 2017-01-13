@@ -41,10 +41,30 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
+            var p1_h1 = $("<h1>").text('I am a heading');
+            var p1_p =  $("<p>").text('This is an awesome paragraph');
+            var p1_p2 = $("<p>").css('color', 'red').text('This has red text');
+            $('#playground1').append(p1_h1, p1_p, p1_p2);
 
             //playground 2 code
+            var p2_div1 = $("<div>").addClass('awesome_class').text('Here is some awesome div text');
+            var p2_div2 = $("<div>").addClass('awesome_class').attr('id', 'my_awesome_div2').text('Here is MORE awesome div text');
+            //Used .html instead of text to add strong tags for below
+            var p2_div3 = $("<div>").addClass('awesome_class').attr('id', 'my_awesome_div3').html('Here is <strong>EVEN MORE</strong> awesome div text');
+            $('#playground2').append(p2_div1, p2_div2, p2_div3);
 
             //playground 3 code
+            var p3_ul = $("<ul>").addClass('neato');
+            for(var i=1;i<4;i++){
+                var p3_li = $("<li>").text('Link '+i);
+                p3_ul.append(p3_li);
+            }
+            var p3_figure = $('<figure>').addClass('awesome_picture');
+            var p3_img = $('<img>').attr('src', 'http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg');
+            //Used .html instead of text to add strong tags for below
+            var p3_figcaption = $('<figcaption>').html('That\'s right,<span class="bold_text"> you are</span>');
+            p3_figure.append(p3_img, p3_figcaption);
+            $('#playground3').append(p3_ul, p3_figure);
         });
     </script>
 </head>
