@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Ref Data Types Prototype</title>
+    <script>
+        //fs1
+        var student_array = ['Mark', 'Andy', 'Michael', 'John', 'Brock'];
+        console.log('The third student in my array is ' + student_array[2]);
+        //fs1.1
+        console.log('The full student array is ' + student_array);
+        console.log('The length of the array is ' + student_array.length);
+        student_array.push('Yaeri', 'Gwen');
+        console.log('The new length of the array is ' + student_array.length);
+        console.log('The new full student array is ' + student_array);
+
+        //fs2
+        var student = {};
+        student.firstName = 'Mark';
+        student.lastName = 'Crisostomo';
+        student.age = 28;
+        student.school = 'UC San Diego';
+        student.questionList = [];
+        student.hasQuestion = false;
+        //fs2.1
+        student.greeting = function(){
+            return 'Hello, my name is ' + this.firstName;
+        }
+        student.aboutMe = function () {
+            return 'My full name is ' + this.firstName +' '+this.lastName+', I am '+ this.age +' years old and I am a student at ' + this.school +'.';
+        }
+        student.askQuestion = function (question) {
+            this.questionList.push(question);
+            this.hasQuestion = true;
+            return 'A question has been added to your list';
+        }
+        student.answerQuestion = function () {
+            if (this.hasQuestion == true){
+                this.hasQuestion = false;
+                return this.questionList[this.questionList.length - 1];
+            }else {
+                return 'You have no pending questions';
+            }
+        }
+        //fs2.2
+        console.log('Greeting function: ' + student.greeting());
+        console.log('About me function: ' + student.aboutMe());
+        console.log('Answer question function: ' + student.answerQuestion());
+        console.log(student.askQuestion('Q1: What time is it?'));
+        console.log(student.askQuestion('Q2: What should I eat for lunch?'));
+        console.log(student.askQuestion('Q3: Why am I so sleepy?'));
+        console.log('Answer question function #2: ' + student.answerQuestion());
+        console.log('These are my questions in array format: ', student.questionList);
+        //Quick exercise
+        console.log('Here is my student object: ' + student);
+        console.log('Here is my student object: ', student);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
