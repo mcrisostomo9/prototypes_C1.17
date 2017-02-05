@@ -1,5 +1,5 @@
 //Create GLOBAL variable below here on line 2
-
+global_result = null;
 
 $(document).ready(function(){
     $('button').click(function(){
@@ -9,7 +9,15 @@ $(document).ready(function(){
             url: 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topMovies/json',
             success: function(result) {
                 console.log('AJAX Success function called, with the following result:', result);
-
+                global_result = result;
+                for(i=0;i < global_result.feed.entry.length-1; i++){
+                    var movies_pic = global_result.feed.entry[i]['im:image'][2].label;
+                    var movie_title = global_result.feed.entry[i]['im:name'].label;
+                    var movie_director = global_result.feed.entry[i]['im:artist'].label;
+                    $('<img>').attr('src', movies_pic).appendTo('#main');
+                    $('<h4>').text(movie_title).appendTo('#main');
+                    $('<p>').text('Directed by: ' + movie_director).appendTo('#main');
+                }
             }
         });
         console.log('End of click function');
