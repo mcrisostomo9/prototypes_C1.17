@@ -13,8 +13,11 @@
                 $.ajax({
                     dataType: 'text',
                     url: 'index.php',
-                    method: 'get',
-                    data: 'howdy',
+                    method: 'post',
+                    data: {
+                      textarea: $('#text_area').val(),
+                      checkbox: $('#checkbox').val()
+                    },
                     success: function(result) {
                         console.log(result);
                     }
@@ -26,8 +29,8 @@
 
 <body>
     <form class=""  method="post">
-        <input type="checkbox" name="" value="howdy">
-        <textarea></textarea>
+        <input id='checkbox' type="checkbox" name="" value="howdy">
+        <textarea id='text_area'></textarea>
         <button type="button" name="button">click</button>
     </form>
 
