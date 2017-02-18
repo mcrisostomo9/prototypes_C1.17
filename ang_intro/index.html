@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Angular Intro</title>
@@ -7,13 +8,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
 </head>
-<body>
-  <div ng-init="myVar='Im an Angular master'">
-    {{myVar}}
-  </div>
-  <div ng-init="carArray=['BMW', 'RSX', 'Audi', 'Honda']">
 
-  </div>
+<body ng-app>
+    <div ng-init="myVar='Angggggular'">
+        {{myVar}}
+    </div>
+    <div ng-init="carArray=['BMW', 'RSX', 'Audi', 'Honda']">
+        <ul>
+            <li ng-repeat="car in carArray">
+              {{car}}
+            </li>
+        </ul>
+    </div>
+    <div>
+      <input type="text" ng-model="myInput">
+      <p>{{myInput}}</p>
+    </div>
 
 </body>
+
 </html>
