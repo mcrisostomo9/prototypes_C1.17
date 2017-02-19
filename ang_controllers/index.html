@@ -15,7 +15,7 @@
         Email:<input type="text" ng-model="fc.form.email"><br/>
         <textarea name="name" rows="8" cols="80" ng-model="fc.form.comments" ng-disabled="fc.text_area_active()"></textarea>
         <button type="button" ng-click="fc.addForm()">Add</button><br/>
-        <p>Characters remaining: {{ fc.display_remaining() }}</p>
+        <p>Characters remaining: {{ fc.max_characters - fc.form.comments.length }}</p>
 
         <table>
           <tr>
@@ -43,6 +43,7 @@
               console.log('clicked');
               self.formArray.push(self.form);
               self.form = {};
+              // text_area_active();
             }
 
            self.max_characters = 25;
@@ -50,15 +51,10 @@
              var remaining_characters = self.max_characters - self.form.comments.length;
              if (remaining_characters <= 0) {
                return true;
-             }else {
-               return false;
              }
+             return false;
            }
 
-           self.display_remaining = function(){
-             var remaining_characters = self.max_characters - self.form.comments.length;
-             return remaining_characters;
-           }
 
 
         })
