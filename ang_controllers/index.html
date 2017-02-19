@@ -1,12 +1,60 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Angular Controllers</title>
     <!-- Add the AngularJS CDN below -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
-<body>
 
+<body ng-app="markApp">
+    <div ng-controller="formController as fc">
+        First Name:<input type="text" ng-model="fc.form.firstName"><br/>
+        Last Name:<input type="text" ng-model="fc.form.lastName"><br/>
+        Email:<input type="text" ng-model="fc.form.email"><br/>
+        <textarea name="name" rows="8" cols="80" ng-model="fc.form.comments"></textarea>
+        <button type="button" ng-click="fc.addForm()">Add</button><br/>
+        <p>Characters remaining: {{ fc.max_characters }}</p>
+
+        <table>
+          <tr>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Comments</th>
+          </tr>
+          <tr ng-repeat="key in fc.formArray">
+            <td>{{ key.firstName + " " + key.lastName }}</td>
+            <td> {{ key.email }}</td>
+            <td> {{ key.comments }} </td>
+          </tr>
+        </table>
+
+    </div>
+    <script type="text/javascript">
+        var app = angular.module("markApp", []);
+
+        app.controller("formController", function() {
+          var self = this;
+          self.form = {};
+          self.formArray = [];
+
+          self.addForm = function() {
+              console.log('clicked');
+              self.formArray.push(self.form);
+              self.form = {};
+            }
+
+           self.max_characters = 25;
+           self.current_characters = self.max_characters - self.form.comments.length;
+
+           self.display_characters = function () {
+             if(characters_left <= 0){
+
+             }
+           }
+        })
+    </script>
 </body>
+
 </html>
