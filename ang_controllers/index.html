@@ -13,7 +13,7 @@
         First Name:<input type="text" ng-model="fc.form.firstName"><br/>
         Last Name:<input type="text" ng-model="fc.form.lastName"><br/>
         Email:<input type="text" ng-model="fc.form.email"><br/>
-        <textarea name="name" rows="8" cols="80" ng-model="fc.form.comments" ng-disabled="fc.max_characters - fc.form.comments.length == 0"></textarea>
+        <textarea name="name" rows="8" cols="80" ng-model="fc.form.comments" ng-disabled="fc.toggle_text_area()"></textarea>
         <button type="button" ng-click="fc.addForm()">Add</button><br/>
         <p>Characters remaining: {{ fc.max_characters - fc.form.comments.length }}</p>
 
@@ -48,11 +48,10 @@
 
            self.max_characters = 25;
            self.toggle_text_area = function() {
-             console.log('toggled');
              var remaining_characters = self.max_characters - self.form.comments.length;
-             if (remaining_characters <= 0){
+             if (self.form.comments == undefined){
                return true;
-             }else {
+             }else if(remaining_characters <=0){
              return false;
              }
            }
