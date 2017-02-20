@@ -47,18 +47,15 @@
           }
 
            self.max_characters = 25;
-          //  self.text_area_disabled = 0;
-          //  self.toggle_text_area = function() {
-          //    console.log('toggled');
-          //    var remaining_characters = self.max_characters - self.form.comments.length;
-          //    if (remaining_characters <= 0){
-          //      text_area_disabled = true;
-          //      return text_area_disabled;
-          //    }else {
-          //      text_area_disabled = false;
-          //    return text_area_disabled;
-          //    }
-          //  }
+           self.toggle_text_area = function() {
+             console.log('toggled');
+             var remaining_characters = self.max_characters - self.form.comments.length;
+             if (remaining_characters <= 0){
+               return true;
+             }else {
+             return false;
+             }
+           }
 
 
 
