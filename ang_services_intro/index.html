@@ -7,7 +7,7 @@
 </head>
 <body ng-app="markApp">
   <div ng-controller="dataController as dc">
-    <input type="text" ng-model="artistName">
+    <input type="text" ng-model="artistName"> <!-- why does it break if i use dc.artistName -->
     <button ng-click="dc.getArtist(artistName)" >get Artist</button>
   </div>
 

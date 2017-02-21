@@ -5,6 +5,7 @@ app.controller('dataController', function($http, $log){
   self.artistName;
   self.urlGenerator = function (artist) {
       var searchArtist =  "https://itunes.apple.com/search?term=[" + [artist] + "]&callback=JSON_CALLBACK";
+      $log.log(searchArtist);
       return searchArtist;
   }
 
@@ -21,7 +22,7 @@ app.controller('dataController', function($http, $log){
         $log.log(response.data)
       },
       function(response){
-        $log.log('error in call')
+        $log.error('error in call')
       }
     );
   }
