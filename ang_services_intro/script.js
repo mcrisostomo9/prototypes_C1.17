@@ -21,9 +21,8 @@ app.controller('dataController', function($http, $log){
     })
     .then(
       function(response){
-        $log.log('successful call', response);
-        self.artistData = response.data;
-        $log.log(self.artistData.artistName);
+        $log.log('successful call');
+        self.artistData = response.data.results;
       },
       function(response){
         $log.error('error in call')
