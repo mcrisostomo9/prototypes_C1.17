@@ -7,8 +7,25 @@
 </head>
 <body ng-app="markApp">
   <div ng-controller="dataController as dc">
-    <input type="text" ng-model="artistName"> <!-- why does it break if i use dc.artistName -->
-    <button ng-click="dc.getArtist(artistName)" >get Artist</button>
+    <input type="text" ng-model="dc.artistName"> <!-- why does it break if i use dc.artistName -->
+    <button ng-click="dc.getArtist(dc.artistName)" >Get Artist</button>
+    <table>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>Artist</th>
+          <th>Top Songs</th>
+          <th>Album</th>
+        </tr>
+        <tr ng-repeat="info in dc.artistData.results">
+          <td>{{  $index + 1 }}</td>
+          <td>{{ info.artistName }}</td>
+          <td>{{ info.trackName }}</td>
+          <td>{{ info.collectionName }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <p>{{ dc.artistData }}</p> -->
   </div>
 
 <script src="script.js"></script>
