@@ -10,8 +10,8 @@ app.controller('dataController', function($http, $log){
       return searchArtist;
   }
 
-  self.getArtist = function(search){
-    var urlSearch = self.urlGenerator(search);
+  self.getArtist = function(artist){
+    var urlSearch = self.urlGenerator(artist);
     $http({
       url: urlSearch,
       method: 'jsonp',
